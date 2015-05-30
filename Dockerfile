@@ -32,7 +32,7 @@ RUN set -x \
 	&& rm -rf /var/lib/mongodb \
 	&& mv /etc/mongod.conf /etc/mongod.conf.orig
 
-RUN mkdir -p /data/db && chown -R mongodb:mongodb /data/db
+RUN mkdir -p /app && chown -R mongodb:mongodb /app
 #VOLUME /data/db
 
 #COPY docker-entrypoint.sh /entrypoint.sh
@@ -40,3 +40,5 @@ RUN mkdir -p /data/db && chown -R mongodb:mongodb /data/db
 
 EXPOSE 27017
 #CMD ["mongod"]
+
+COPY bin /solum/bin
